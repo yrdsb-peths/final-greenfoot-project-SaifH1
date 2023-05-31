@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+        import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Shotgun here.
@@ -17,7 +17,7 @@ public class Shotgun extends Actor
         // Load the animation images
         for(int i = 0; i < gunImages.length; i++)
         {
-            gunImages[i] = new GreenfootImage("images/Shotgun/shotgun"+ i + ".png");
+            gunImages[i] = new GreenfootImage("images/ShotgunClear/shotgun"+ i + ".png");
             gunImages[i].scale(200, 200);
         }
         setImage(gunImages[0]);
@@ -34,6 +34,11 @@ public class Shotgun extends Actor
         animationTimer.mark();
         setImage(gunImages[imageIndex]);
         imageIndex = (imageIndex + 1)  % gunImages.length;
+        
+        if(imageIndex > 6) 
+        {
+            isShooting = false;
+        }
     }
 
     public void act()
@@ -43,8 +48,10 @@ public class Shotgun extends Actor
             isShooting = true;
         }
         
-        if(isShooting){
+        if(isShooting)
+        {
             animateShotgun();
+            
         }
     }
 

@@ -1,6 +1,6 @@
 #Greenfoot project file
 class.Bird.image=wombat.png
-class.Crosshair.image=crosshair-PhotoRoom.png-PhotoRoom.png
+class.Crosshair.image=crosshairClear.png
 class.MyWorld.image=background.jpg
 class.Shotgun.image=shotgun.png
 dependency1.from=MyWorld
@@ -18,10 +18,10 @@ dependency4.type=UsesDependency
 dependency5.from=Shotgun
 dependency5.to=SimpleTimer
 dependency5.type=UsesDependency
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
-editor.fx.0.y=0
+editor.fx.0.height=1056
+editor.fx.0.width=1936
+editor.fx.0.x=-8
+editor.fx.0.y=-8
 height=1056
 package.numDependencies=5
 package.numTargets=5

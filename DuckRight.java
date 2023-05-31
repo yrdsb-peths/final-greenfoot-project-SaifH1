@@ -6,20 +6,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Duck extends Actor
+public class DuckRight extends Actor
 {
-    GreenfootImage[] fly = new GreenfootImage[3];
+    GreenfootImage[] flyRight = new GreenfootImage[3];
+    
     SimpleTimer animationTimer = new SimpleTimer();
     
-    public Duck()
+    
+    public DuckRight()
     {
-        for(int i = 0; i < fly.length; i++)
+        int duckColour = Greenfoot.getRandomNumber(3);
+        for(int i = 0; i < flyRight.length; i++)
         {
-            fly[i] = new GreenfootImage("images/ducks/duckg"+ i + ".png");
-            fly[i].scale(75, 75);
+            flyRight[i] = new GreenfootImage("images/ducks/duck"+ duckColour + i + ".png");
+            flyRight[i].scale(60, 60);
         }
+        
         animationTimer.mark();
-        setImage(fly[0]);
+    }
+    
+    int speed = 1;
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
     
     int imageIndex = 0;
@@ -30,19 +39,20 @@ public class Duck extends Actor
             return;
         }
         animationTimer.mark();
-        setImage(fly[imageIndex]);
-        imageIndex = (imageIndex + 1)  % fly.length;
+    
+        setImage(flyRight[imageIndex]);
+        imageIndex = (imageIndex + 1)  % flyRight.length;
     }
     
-    int speed = 1;
     /**
      * Act - do whatever the Bird wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        setLocation(getX()+speed, getY());
         animateDuckFlying();
+        
+        setLocation(getX()+speed, getY());
+        
     }
 }
-

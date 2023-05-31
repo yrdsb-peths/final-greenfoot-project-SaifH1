@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    public int score = 0;
+    Label scoreLabel;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -21,10 +22,27 @@ public class MyWorld extends World
         Shotgun shotgun = new Shotgun();
         addObject(shotgun, 400, 300);
         
-        Bird bird = new Bird();
-        addObject (bird, 0, 100);
+        
+        scoreLabel = new Label(score, 80);
+        addObject(scoreLabel, 50, 350);
+        
+        spawnDuck();
         
         Crosshair crosshair = new Crosshair();
         addObject(crosshair, 300, 200);
+    }
+    
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue(score);
+    }
+    
+    public void spawnDuck()
+    {
+        Duck duck = new Duck();
+        int x = 0;
+        int y = Greenfoot.getRandomNumber(350);
+        addObject (duck, x, y);
     }
 }

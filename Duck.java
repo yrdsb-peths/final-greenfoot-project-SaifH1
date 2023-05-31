@@ -6,26 +6,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bird extends Actor
+public class Duck extends Actor
 {
-    GreenfootImage[] fly = new GreenfootImage[8];
+    GreenfootImage[] fly = new GreenfootImage[3];
     SimpleTimer animationTimer = new SimpleTimer();
     
-    public Bird()
+    public Duck()
     {
         for(int i = 0; i < fly.length; i++)
         {
-            fly[i] = new GreenfootImage("images/elephant_idle/idle"+ i + ".png");
-            fly[i].scale(100, 100);
+            fly[i] = new GreenfootImage("images/ducks/duckg"+ i + ".png");
+            fly[i].scale(75, 75);
         }
         animationTimer.mark();
         setImage(fly[0]);
     }
     
     int imageIndex = 0;
-    public void animateBird()
+    public void animateDuckFlying()
     {
-        if(animationTimer.millisElapsed() < 100)
+        if(animationTimer.millisElapsed() < 175)
         {
             return;
         }
@@ -42,7 +42,7 @@ public class Bird extends Actor
     public void act()
     {
         setLocation(getX()+speed, getY());
-        animateBird();
+        animateDuckFlying();
     }
 }
 

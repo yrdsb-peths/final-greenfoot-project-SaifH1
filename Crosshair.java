@@ -31,5 +31,18 @@ public class Crosshair extends Actor
         {
              setLocation(getX(), getY()+5);
         }
+
+        hit();
+    }
+    
+    public void hit()
+    {
+        if(isTouching(Duck.class) && Greenfoot.isKeyDown("space"))
+        {
+            removeTouching(Duck.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnDuck();
+            world.increaseScore();
+        }
     }
 }

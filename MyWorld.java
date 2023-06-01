@@ -29,6 +29,14 @@ public class MyWorld extends World
         
         Shotgun shotgun = new Shotgun();
         addObject(shotgun, 400, 300);
+        
+        HealthBar health0 = new HealthBar();
+        HealthBar health1 = new HealthBar();
+        HealthBar health2 = new HealthBar();
+        addObject (health0, 50, 50);
+        addObject (health1, 50, 100);
+        addObject (health2, 50, 150);
+        
     }
     
     int difficulty = 1;

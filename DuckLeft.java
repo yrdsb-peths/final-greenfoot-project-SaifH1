@@ -54,5 +54,12 @@ public class DuckLeft extends Actor
         {
             setLocation(getX()-speed, getY());
         }
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(isAtEdge())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
 }

@@ -52,7 +52,13 @@ public class DuckRight extends Actor
     {
         animateDuckFlying();
         
-        setLocation(getX()+speed, getY());
+        setLocation(getX() + speed, getY());
         
+        MyWorld world = (MyWorld) getWorld();
+        if(isAtEdge())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
 }

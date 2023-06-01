@@ -8,30 +8,47 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Crosshair extends Actor
 {
+    
     /**
      * Act - do whatever the Crosshair wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
+        int movementSpeed = 4;
         // Add your action code here.
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("left") && Greenfoot.isKeyDown("up"))
         {
-            setLocation(getX()-5, getY());
+            setLocation(getX()-movementSpeed, getY()-movementSpeed);
+        }
+        else if(Greenfoot.isKeyDown("right") && Greenfoot.isKeyDown("up"))
+        {
+             setLocation(getX()+movementSpeed, getY()-movementSpeed);
+        }
+        else if(Greenfoot.isKeyDown("left") && Greenfoot.isKeyDown("down"))
+        {
+             setLocation(getX()-movementSpeed, getY()+movementSpeed);
+        }
+        else if(Greenfoot.isKeyDown("right") && Greenfoot.isKeyDown("down"))
+        {
+             setLocation(getX()+movementSpeed, getY()+movementSpeed);
         }
         else if(Greenfoot.isKeyDown("right"))
         {
-             setLocation(getX()+5, getY());
+             setLocation(getX()+movementSpeed, getY());
         }
-        else if(Greenfoot.isKeyDown("up"))
+        else if(Greenfoot.isKeyDown("left"))
         {
-             setLocation(getX(), getY()-5);
+             setLocation(getX()-movementSpeed, getY());
         }
         else if(Greenfoot.isKeyDown("down"))
         {
-             setLocation(getX(), getY()+5);
+             setLocation(getX(), getY()+movementSpeed);
         }
-
+        else if(Greenfoot.isKeyDown("up"))
+        {
+             setLocation(getX(), getY()-movementSpeed);
+        }
         hit();
     }
     

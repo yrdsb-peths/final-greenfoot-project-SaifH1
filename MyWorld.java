@@ -38,13 +38,21 @@ public class MyWorld extends World
         scoreLabel.setValue(score);
         if (score % 5 == 0)
         {
-            difficulty +=0.5;
+            difficulty +=1;
         }
+    }
+    
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel, 300, 150);
+        Label gameOverLabel2 = new Label("Highscore: " + score, 75);
+        addObject(gameOverLabel2, 300, 250);
     }
     
     public void spawnDuck()
     {
-        int leftOrRight = Greenfoot.getRandomNumber(100);
+        int leftOrRight = Greenfoot.getRandomNumber(10);
         if (leftOrRight % 2 == 0)
         {
             duckRight();

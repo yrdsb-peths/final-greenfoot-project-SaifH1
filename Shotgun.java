@@ -28,17 +28,19 @@ public class Shotgun extends Actor
     public void animateShotgun()
     {
         // Delay the shot
-        if(animationTimer.millisElapsed() < 100) {
+        if(animationTimer.millisElapsed() < 100) 
+        {
             return;
         }
         animationTimer.mark();
-        setImage(gunImages[imageIndex]);
-        imageIndex = (imageIndex + 1)  % gunImages.length;
-        
-        if(imageIndex > 6) 
+        imageIndex = (imageIndex + 1);
+        if (imageIndex == 6)
         {
             isShooting = false;
+            imageIndex = 0;
+            setImage(gunImages[0]);
         }
+        setImage(gunImages[imageIndex]);
     }
 
     public void act()

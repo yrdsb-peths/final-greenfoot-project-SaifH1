@@ -8,6 +8,64 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Crosshair extends Actor
 {
+    GreenfootImage[] crosshairImages = new GreenfootImage[2];
+    SimpleTimer animationTimer = new SimpleTimer();
+    boolean hitmarker = false;
+    
+
+    
+    public Crosshair()
+    {
+        // Load the animation images
+        
+        
+        for(int i = 0; i < crosshairImages.length; i++)
+        {
+            crosshairImages[i] = new GreenfootImage("images/hitmarker" + 0 +"/hitmarker" + i + ".png");
+            crosshairImages[i].scale(60, 60);
+        }
+        setImage(crosshairImages[0]);
+        animationTimer.mark();
+    }
+    
+    public void hit()
+    {
+        if(isTouching(DuckLeft.class) && Greenfoot.isKeyDown("space"))
+        {
+            removeTouching(DuckLeft.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnDuck();
+            world.increaseScore();
+            hitmarker = true;
+        }
+        if(isTouching(DuckRight.class) && Greenfoot.isKeyDown("space"))
+        {
+            removeTouching(DuckRight.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnDuck();
+            world.increaseScore();
+            hitmarker = true;
+        }
+    }
+    
+    int imageIndex = 0;
+    public void animateHitmarker()
+    {
+        // Delay the shot
+        if(animationTimer.millisElapsed() < 200) 
+        {
+            return;
+        }
+        animationTimer.mark();
+        imageIndex = (imageIndex + 1);
+        if (imageIndex >= 2)
+        {
+            hitmarker = false;
+            imageIndex = 0;
+            setImage(crosshairImages[0]);
+        }
+        setImage(crosshairImages[imageIndex]);
+    }
     
     /**
      * Act - do whatever the Crosshair wants to do. This method is called whenever
@@ -49,24 +107,11 @@ public class Crosshair extends Actor
         {
              setLocation(getX(), getY()-movementSpeed);
         }
+        
         hit();
-    }
-    
-    public void hit()
-    {
-        if(isTouching(DuckLeft.class) && Greenfoot.isKeyDown("space"))
+        if(hitmarker == true)
         {
-            removeTouching(DuckLeft.class);
-            MyWorld world = (MyWorld) getWorld();
-            world.spawnDuck();
-            world.increaseScore();
-        }
-        if(isTouching(DuckRight.class) && Greenfoot.isKeyDown("space"))
-        {
-            removeTouching(DuckRight.class);
-            MyWorld world = (MyWorld) getWorld();
-            world.spawnDuck();
-            world.increaseScore();
+            animateHitmarker();
         }
     }
 }

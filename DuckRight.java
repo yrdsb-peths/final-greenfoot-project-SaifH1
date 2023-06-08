@@ -31,6 +31,12 @@ public class DuckRight extends Actor
         speed = spd;
     }
     
+    int duckColour;
+    public void setColour(int clr)
+    {
+        duckColour = clr;
+    }
+    
     int imageIndex = 0;
     public void animateDuckFlying()
     {
@@ -39,7 +45,6 @@ public class DuckRight extends Actor
             return;
         }
         animationTimer.mark();
-    
         setImage(flyRight[imageIndex]);
         imageIndex = (imageIndex + 1)  % flyRight.length;
     }

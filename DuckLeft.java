@@ -14,7 +14,7 @@ public class DuckLeft extends Actor
     
     public DuckLeft()
     {
-        int duckColour = Greenfoot.getRandomNumber(3);
+        
         for(int i = 0; i < flyLeft.length; i++)
         {
             flyLeft[i] = new GreenfootImage("images/ducks/duck"+ duckColour + i + ".png");
@@ -31,6 +31,11 @@ public class DuckLeft extends Actor
         speed = spd;
     }
     
+    int duckColour;
+    public void setColour(int clr)
+    {
+        duckColour = clr;
+    }
     
     int imageIndex = 0;
     public void animateDuckFlying()
@@ -42,7 +47,7 @@ public class DuckLeft extends Actor
         animationTimer.mark();
         setImage(flyLeft[imageIndex]);
         imageIndex = (imageIndex + 1)  % flyLeft.length;
-        }
+    }
     
     /**
      * Act - do whatever the Bird wants to do. This method is called whenever

@@ -30,15 +30,8 @@ public class MyWorld extends World
         Shotgun shotgun = new Shotgun();
         addObject(shotgun, 400, 300);
         
-        HealthBar health0 = new HealthBar();
-        HealthBar health1 = new HealthBar();
-        HealthBar health2 = new HealthBar();
-        addObject (health0, 50, 50);
-        addObject (health1, 50, 100);
-        addObject (health2, 50, 150);
-        
     }
-    
+                
     int difficulty = 1;
     public void increaseScore()
     {
@@ -48,6 +41,12 @@ public class MyWorld extends World
         {
             difficulty +=1;
         }
+    }
+    
+    int colour;
+    public void randomColour()
+    {
+        int colour = Greenfoot.getRandomNumber(3);
     }
     
     public void gameOver()
@@ -60,8 +59,8 @@ public class MyWorld extends World
     
     public void spawnDuck()
     {
-        int leftOrRight = Greenfoot.getRandomNumber(10);
-        if (leftOrRight % 2 == 0)
+        int leftOrRight = Greenfoot.getRandomNumber(3);
+        if (leftOrRight == 2)
         {
             duckRight();
         }
@@ -75,6 +74,7 @@ public class MyWorld extends World
     {
         DuckRight duck = new DuckRight();
         duck.setSpeed(difficulty);
+        duck.setColour(colour);
         int x = 0;
         int y = Greenfoot.getRandomNumber(350);
         addObject (duck, x, y);
@@ -84,6 +84,7 @@ public class MyWorld extends World
     {
         DuckLeft duck = new DuckLeft();
         duck.setSpeed(difficulty);
+        duck.setColour(colour);
         int x = 600;
         int y = Greenfoot.getRandomNumber(350);
         addObject (duck, x, y);

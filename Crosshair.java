@@ -12,8 +12,6 @@ public class Crosshair extends Actor
     SimpleTimer animationTimer = new SimpleTimer();
     boolean hitmarker = false;
     
-
-    
     public Crosshair()
     {
         // Load the animation images

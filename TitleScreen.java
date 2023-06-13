@@ -41,6 +41,5 @@ public class TitleScreen extends World
         addObject(label,getWidth()/2,320);
         Label label2 = new Label("use arrow keys to aim and space to shoot", 35);
         addObject(label2,getWidth()/2,370);
-
     }
 }

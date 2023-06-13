@@ -9,15 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class DuckLeft extends Actor
 {
     GreenfootImage[] flyLeft = new GreenfootImage[3];
-    
     SimpleTimer animationTimer = new SimpleTimer();
     
     public DuckLeft()
     {
-        
+        int duckColour = Greenfoot.getRandomNumber(3);
         for(int i = 0; i < flyLeft.length; i++)
         {
-            flyLeft[i] = new GreenfootImage("images/ducks/duck"+ duckColour + i + ".png");
+            flyLeft[i] = new GreenfootImage("images/ducks/duck" + duckColour + i + ".png");
             flyLeft[i].mirrorHorizontally();
             flyLeft[i].scale(60, 60);
         }
@@ -30,12 +29,7 @@ public class DuckLeft extends Actor
     {
         speed = spd;
     }
-    
-    int duckColour;
-    public void setColour(int clr)
-    {
-        duckColour = clr;
-    }
+  
     
     int imageIndex = 0;
     public void animateDuckFlying()

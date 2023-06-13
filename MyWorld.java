@@ -21,40 +21,28 @@ public class MyWorld extends World
     
         scoreLabel = new Label(score, 80);
         addObject(scoreLabel, 50, 350);
-        
-        spawnDuck();
-        
+
         Crosshair crosshair = new Crosshair();
         addObject(crosshair, 300, 200);
         
-        Shotgun shotgun = new Shotgun();
-        addObject(shotgun, 400, 300);
+
+        spawnShotgun();
         
     }
-                
-    int difficulty = 1;
-    public void increaseScore()
-    {
-        score++;
-        scoreLabel.setValue(score);
-        if (score % 5 == 0)
-        {
-            difficulty +=1;
-        }
-    }
-    
-    int colour;
-    public void randomColour()
-    {
-        int colour = Greenfoot.getRandomNumber(3);
-    }
-    
+
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 150);
         Label gameOverLabel2 = new Label("Highscore: " + score, 75);
         addObject(gameOverLabel2, 300, 250);
+    }
+
+    public void spawnShotgun()
+    {
+        Shotgun shotgun = new Shotgun();
+        addObject(shotgun, 400, 300);
+
     }
     
     public void spawnDuck()
@@ -74,7 +62,6 @@ public class MyWorld extends World
     {
         DuckRight duck = new DuckRight();
         duck.setSpeed(difficulty);
-        duck.setColour(colour);
         int x = 0;
         int y = Greenfoot.getRandomNumber(350);
         addObject (duck, x, y);
@@ -84,9 +71,19 @@ public class MyWorld extends World
     {
         DuckLeft duck = new DuckLeft();
         duck.setSpeed(difficulty);
-        duck.setColour(colour);
         int x = 600;
         int y = Greenfoot.getRandomNumber(350);
         addObject (duck, x, y);
+    }
+    
+    int difficulty = 1;
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue(score);
+        if (score % 5 == 0)
+        {
+            difficulty +=1;
+        }
     }
 }

@@ -19,8 +19,8 @@ public class Crosshair extends Actor
         
         for(int i = 0; i < crosshairImages.length; i++)
         {
-            crosshairImages[i] = new GreenfootImage("images/hitmarker" + 0 +"/hitmarker" + i + ".png");
-            crosshairImages[i].scale(60, 60);
+            crosshairImages[i] = new GreenfootImage("images/hitmarker/hitmarker" + i + ".png");
+            crosshairImages[i].scale(50, 50);
         }
         setImage(crosshairImages[0]);
         animationTimer.mark();

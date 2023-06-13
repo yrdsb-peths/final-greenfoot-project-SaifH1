@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class DuckRight extends Actor
 {
     GreenfootImage[] flyRight = new GreenfootImage[3];
-    
     SimpleTimer animationTimer = new SimpleTimer();
     
     
@@ -31,11 +30,6 @@ public class DuckRight extends Actor
         speed = spd;
     }
     
-    int duckColour;
-    public void setColour(int clr)
-    {
-        duckColour = clr;
-    }
     
     int imageIndex = 0;
     public void animateDuckFlying()

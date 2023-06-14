@@ -18,7 +18,7 @@ public class Shotgun extends Actor
         for(int i = 0; i < gunImages.length; i++)
         {
             gunImages[i] = new GreenfootImage("images/ShotgunClear/shotgun"+ i + ".png");
-            gunImages[i].scale(200, 200);
+            gunImages[i].scale(175, 175);
         }
         setImage(gunImages[0]);
         animationTimer.mark();

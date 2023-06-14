@@ -28,7 +28,7 @@ public class MyWorld extends World
         spawnDuck();
         
         Shotgun shotgun = new Shotgun();
-        addObject(shotgun, 400, 300);
+        addObject(shotgun, 400, 325);
     }
 
     public void gameOver()

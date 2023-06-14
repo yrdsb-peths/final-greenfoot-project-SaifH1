@@ -50,7 +50,7 @@ public class Crosshair extends Actor
     public void animateHitmarker()
     {
         // Delay the shot
-        if(animationTimer.millisElapsed() < 200) 
+        if(animationTimer.millisElapsed() < 175) 
         {
             return;
         }

@@ -18,7 +18,6 @@ public class TitleScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
 
-        addObject(titleLabel, getWidth()/2, 75);
         prepare();
     }
 
@@ -34,6 +33,8 @@ public class TitleScreen extends World
             Instructions instructions = new Instructions();
             Greenfoot.setWorld(instructions);
         }
+       
+        
     }
     
     /**
@@ -42,9 +43,13 @@ public class TitleScreen extends World
      */
     private void prepare()
     {
+        addObject(titleLabel, getWidth()/2, 75);
         Label label = new Label("press space to start the game", 45);
-        addObject(label,getWidth()/2,100);
-        Label label2 = new Label("press I to see how to play", 35);
-        addObject(label2,getWidth()/2,370);
+        addObject(label,getWidth()/2,140);
+        Label label2 = new Label("press I to see how to play", 45);
+        addObject(label2,getWidth()/2,190);
+        
+        
     }
+    
 }

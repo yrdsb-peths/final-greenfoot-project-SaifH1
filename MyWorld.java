@@ -25,9 +25,10 @@ public class MyWorld extends World
         Crosshair crosshair = new Crosshair();
         addObject(crosshair, 300, 200);
         
-
-        spawnShotgun();
+        spawnDuck();
         
+        Shotgun shotgun = new Shotgun();
+        addObject(shotgun, 400, 300);
     }
 
     public void gameOver()
@@ -36,19 +37,14 @@ public class MyWorld extends World
         addObject(gameOverLabel, 300, 150);
         Label gameOverLabel2 = new Label("Highscore: " + score, 75);
         addObject(gameOverLabel2, 300, 250);
-    }
-
-    public void spawnShotgun()
-    {
-        Shotgun shotgun = new Shotgun();
-        addObject(shotgun, 400, 300);
-
+        
+        
     }
     
     public void spawnDuck()
     {
-        int leftOrRight = Greenfoot.getRandomNumber(3);
-        if (leftOrRight == 2)
+        int leftOrRight = Greenfoot.getRandomNumber(2);
+        if (leftOrRight == 1)
         {
             duckRight();
         }
@@ -81,7 +77,7 @@ public class MyWorld extends World
     {
         score++;
         scoreLabel.setValue(score);
-        if (score % 5 == 0)
+        if (score % 10 == 0)
         {
             difficulty +=1;
         }

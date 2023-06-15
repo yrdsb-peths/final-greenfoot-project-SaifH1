@@ -32,9 +32,11 @@ public class Instructions extends World
     
     private void prepare()
     {
+        Label label2 = new Label("use arrow keys to aim", 45);
+        addObject(label2,getWidth()/2,150);
+        Label label3 = new Label("use space to shoot", 45);
+        addObject(label3,getWidth()/2,200);
         Label label = new Label("press space to start the game", 45);
-        addObject(label,getWidth()/2,320);
-        Label label2 = new Label("use arrow keys to aim and space to shoot", 35);
-        addObject(label2,getWidth()/2,370);
+        addObject(label,getWidth()/2,360);
     }
 }

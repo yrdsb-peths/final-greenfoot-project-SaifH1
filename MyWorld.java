@@ -30,14 +30,24 @@ public class MyWorld extends World
         Shotgun shotgun = new Shotgun();
         addObject(shotgun, 400, 325);
     }
-
+    
+    public void act()
+    {
+        if(Greenfoot.isKeyDown("r"))
+        {
+            MyWorld gameWorld = new MyWorld();
+            Greenfoot.setWorld(gameWorld);
+        }
+    }
+    
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 150);
         Label gameOverLabel2 = new Label("Highscore: " + score, 75);
         addObject(gameOverLabel2, 300, 250);
-        
+        Label gameOverLabel3 = new Label("Press R to play again", 70);
+        addObject(gameOverLabel3, 300, 320);
         
     }
     
